@@ -1,4 +1,4 @@
-module github.com/TangSengDaoDao/TangSengDaoDaoServerLib
+module github.com/tangseng-vge/TangSengDaoDaoServerLib
 
 go 1.20
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/common"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/util"
+	"github.com/tangseng-vge/TangSengDaoDaoServerLib/common"
+	"github.com/tangseng-vge/TangSengDaoDaoServerLib/pkg/util"
 )
 
 // SendGroupCreate 发送群创建的消息

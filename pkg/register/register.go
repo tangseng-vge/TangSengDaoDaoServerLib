@@ -5,8 +5,8 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/model"
-	"github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/wkhttp"
+	"github.com/tangseng-vge/TangSengDaoDaoServerLib/model"
+	"github.com/tangseng-vge/TangSengDaoDaoServerLib/pkg/wkhttp"
 )
 
 // APIRouter api路由者

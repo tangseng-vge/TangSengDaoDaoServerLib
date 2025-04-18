@@ -5,11 +5,11 @@ import (
 	"io"
 	"net/http"
 
-	llog "github.com/TangSengDaoDao/TangSengDaoDaoServerLib/pkg/log"
 	"github.com/gin-gonic/gin"
 	"github.com/opentracing/opentracing-go"
 	"github.com/opentracing/opentracing-go/ext"
 	"github.com/opentracing/opentracing-go/log"
+	llog "github.com/tangseng-vge/TangSengDaoDaoServerLib/pkg/log"
 	"github.com/uber/jaeger-client-go"
 	jaegercfg "github.com/uber/jaeger-client-go/config"
 	"go.uber.org/zap"
