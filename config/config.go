@@ -562,7 +562,10 @@ func (c *Config) ConfigureWithViper(vp *viper.Viper) {
 	c.External.APIBaseURLJW = c.getString("external.apiBaseURL", c.External.APIBaseURLJW)
 	c.External.BaseURLJW = c.getString("external.baseURLJW", c.External.BaseURLJW)
 	c.External.WebLoginURLJW = c.getString("external.webLoginURLJW", c.External.BaseURLJW)
-
+	fmt.Println("APIBaseURL" + c.External.APIBaseURL)
+	fmt.Println("APIBaseURLJW" + c.External.APIBaseURLJW)
+	fmt.Println("BaseURLJW" + c.External.BaseURLJW)
+	fmt.Println("WebLoginURLJW" + c.External.WebLoginURLJW)
 	if strings.TrimSpace(c.External.WebLoginURL) == "" {
 		c.External.WebLoginURL = fmt.Sprintf("http://%s:82", c.External.IP)
 	}
