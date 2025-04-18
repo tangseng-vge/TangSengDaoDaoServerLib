@@ -81,11 +81,15 @@ type Config struct {
 	AdminPwd                    string // 后台管理默认密码
 	// ---------- 外网配置 ----------
 	External struct {
-		IP          string // 外网IP
-		BaseURL     string // 本服务的对外的基础地址
-		H5BaseURL   string // h5页面的基地址 如果没有配置默认未 BaseURL + /web
-		APIBaseURL  string // api的基地址 如果没有配置默认未 BaseURL + /v1
-		WebLoginURL string // web登录地址
+		IP            string // 外网IP
+		BaseURL       string // 本服务的对外的基础地址
+		H5BaseURL     string // h5页面的基地址 如果没有配置默认未 BaseURL + /web
+		APIBaseURL    string // api的基地址 如果没有配置默认未 BaseURL + /v1
+		WebLoginURL   string // web登录地址
+		BaseURLJW     string // 本服务的对外的基础地址  境外
+		H5BaseURLJW   string // h5页面的基地址 如果没有配置默认未 BaseURL + /web  境外
+		APIBaseURLJW  string // api的基地址 如果没有配置默认未 BaseURL + /v1  境外
+		WebLoginURLJW string // web登录地址  境外
 	}
 	// ---------- 日志配置 ----------
 	Logger struct {
@@ -297,14 +301,20 @@ func New() *Config {
 		AdminPwd:                    "",
 		// ---------- 外网配置 ----------
 		External: struct {
-			IP          string
-			BaseURL     string
-			H5BaseURL   string
-			APIBaseURL  string
-			WebLoginURL string
+			IP            string
+			BaseURL       string
+			H5BaseURL     string
+			APIBaseURL    string
+			WebLoginURL   string
+			BaseURLJW     string
+			H5BaseURLJW   string
+			APIBaseURLJW  string
+			WebLoginURLJW string
 		}{
-			BaseURL:     "",
-			WebLoginURL: "",
+			BaseURL:       "",
+			WebLoginURL:   "",
+			BaseURLJW:     "",
+			WebLoginURLJW: "",
 		},
 
 		// ---------- db配置 ----------
@@ -544,8 +554,14 @@ func (c *Config) ConfigureWithViper(vp *viper.Viper) {
 	if strings.TrimSpace(c.External.IP) == "" { // 没配置外网IP就使用内网IP
 		c.External.IP = intranetIP
 	}
+
+	//  自定义配置
 	c.External.WebLoginURL = c.getString("external.webLoginURL", c.External.WebLoginURL)
 	c.External.BaseURL = c.getString("external.baseURL", c.External.BaseURL)
+	c.External.APIBaseURL = c.getString("external.apiBaseURL", c.External.APIBaseURL)
+	c.External.APIBaseURLJW = c.getString("external.apiBaseURL", c.External.APIBaseURLJW)
+	c.External.BaseURLJW = c.getString("external.baseURLJW", c.External.BaseURLJW)
+	c.External.WebLoginURLJW = c.getString("external.webLoginURLJW", c.External.BaseURLJW)
 
 	if strings.TrimSpace(c.External.WebLoginURL) == "" {
 		c.External.WebLoginURL = fmt.Sprintf("http://%s:82", c.External.IP)
